@@ -1,59 +1,93 @@
-# Worker + D1 Database
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Sayfası</title>
+    <meta name="description" content="Güncel bilgiler, rehberler ve blog yazıları.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/d1-template)
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+            background: #1e88e5;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        h1, h2 {
+            color: #222;
+        }
+        .post {
+            margin-bottom: 40px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            background: #eee;
+        }
+    </style>
+</head>
+<body>
 
-![Worker + D1 Template Preview](https://imagedelivery.net/wSMYJvS3Xw-n339CbDyDIA/cb7cb0a9-6102-4822-633c-b76b7bb25900/public)
+<header>
+    <h1>Bilgi & Rehber Blogu</h1>
+    <p>Güncel yazılar ve faydalı içerikler</p>
+</header>
 
-<!-- dash-content-start -->
+<div class="container">
 
-D1 is Cloudflare's native serverless SQL database ([docs](https://developers.cloudflare.com/d1/)). This project demonstrates using a Worker with a D1 binding to execute a SQL statement. A simple frontend displays the result of this query:
+    <div class="post">
+        <h2>İnternet Teknolojileri Hakkında Genel Bilgiler</h2>
+        <img src="https://picsum.photos/800/400" alt="Blog Görseli">
+        <p>
+            İnternet teknolojileri her geçen gün gelişmektedir. Web siteleri,
+            mobil uyumluluk, hız ve kullanıcı deneyimi günümüzde oldukça
+            önemli hale gelmiştir.
+        </p>
+        <p>
+            Bu blogda dijital dünyaya dair temel bilgiler, rehberler ve
+            bilgilendirici yazılar paylaşılmaktadır. İçerikler düzenli olarak
+            güncellenmektedir.
+        </p>
+    </div>
 
-```SQL
-SELECT * FROM comments LIMIT 3;
-```
+    <div class="post">
+        <h2>Web Siteleri Neden Önemlidir?</h2>
+        <img src="https://picsum.photos/800/401" alt="Web Sitesi">
+        <p>
+            Web siteleri markaların ve bireylerin internetteki kimliğidir.
+            Doğru hazırlanmış bir site, ziyaretçilere güven verir ve bilgiye
+            hızlı ulaşılmasını sağlar.
+        </p>
+        <p>
+            Blog yapısı sayesinde içerikler kategorize edilebilir ve arama
+            motorlarında daha görünür hale gelir.
+        </p>
+    </div>
 
-The D1 database is initialized with a `comments` table and this data:
+</div>
 
-```SQL
-INSERT INTO comments (author, content)
-VALUES
-    ('Kristian', 'Congrats!'),
-    ('Serena', 'Great job!'),
-    ('Max', 'Keep up the good work!')
-;
-```
+<footer>
+    © 2026 Blog Sayfası | Tüm Hakları Saklıdır
+</footer>
 
-> [!IMPORTANT]
-> When using C3 to create this project, select "no" when it asks if you want to deploy. You need to follow this project's [setup steps](https://github.com/cloudflare/templates/tree/main/d1-template#setup-steps) before deploying.
-
-<!-- dash-content-end -->
-
-## Getting Started
-
-Outside of this repo, you can start a new project with this template using [C3](https://developers.cloudflare.com/pages/get-started/c3/) (the `create-cloudflare` CLI):
-
-```
-npm create cloudflare@latest -- --template=cloudflare/templates/d1-template
-```
-
-A live public deployment of this template is available at [https://d1-template.templates.workers.dev](https://d1-template.templates.workers.dev)
-
-## Setup Steps
-
-1. Install the project dependencies with a package manager of your choice:
-   ```bash
-   npm install
-   ```
-2. Create a [D1 database](https://developers.cloudflare.com/d1/get-started/) with the name "d1-template-database":
-   ```bash
-   npx wrangler d1 create d1-template-database
-   ```
-   ...and update the `database_id` field in `wrangler.json` with the new database ID.
-3. Run the following db migration to initialize the database (notice the `migrations` directory in this project):
-   ```bash
-   npx wrangler d1 migrations apply --remote d1-template-database
-   ```
-4. Deploy the project!
-   ```bash
-   npx wrangler deploy
-   ```
+</body>
+</html>
